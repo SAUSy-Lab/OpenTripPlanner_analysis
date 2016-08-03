@@ -11,26 +11,26 @@ The scripts in this repository make use of OpenTripPlanner for batch travel time
 OpenTripPlanner is written in Java (find the executable .jar [here](http://maven.conveyal.com/org/opentripplanner/otp/)) and uses OpenStreeMap (as .pbf or .xml) and GTFS (as a .zip package) as inputs. Put these three into a directory and use the following commands to build a routable graph.
 
 Command for building a graph and storing as graph.obj:
-'''shell
+```shell
 java -Xmx4G -jar otp.jar --build /path/to/dir/ --basePath /path/to/dir/ --analyst
-'''
+```
 
 Command for building a graph and putting it in a local server:
-'''shell
+```shell
 java -Xmx4G -jar otp.jar --build /path/to/dir/ --inMemory --analyst
-'''
+```
 
 Running scripts on OTP requires [Jython](http://www.jython.org/), an implementation of Python to run Java. There are two commands for running a Python script with Jython:
 
 1 - By calling Jython:
-'''shell
+```shell
 jython -Dpython.path=otp.jar my_script.py
-'''
+```
 
 2 - Or by having executable jython.jar in the same directory:
-'''shell
+```shell
 java -Xmx4G -cp otp.jar:jython.jar org.opentripplanner.standalone.OTPMain --graphs . --script my_script.py
-'''
+```
 
 ---
 
