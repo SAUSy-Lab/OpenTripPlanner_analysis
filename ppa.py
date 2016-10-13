@@ -8,8 +8,15 @@
 # make sure graph is connected before running!
 # (e.g. no islands, etc.)
 
+# this works well for modes that aren't time dependent (e.g. walking, biking)
+# not precise for transit (e.g. varying schedules) as it it 
+# routes start and mid point on the same departure time
+# so there is room from improvement!
+
 # run via ...
 # jython -Dpython.path=otp.jar ppa.py
+
+
 
 from org.opentripplanner.scripting.api import *
 import time
