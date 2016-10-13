@@ -3,7 +3,7 @@
 # outputs results are tied to a network graph
 
 # inputs required
-# 1 - two points, # gtfs and osm to build graph, # location of graph nodes
+# 2 points, # gtfs and osm to build graph, # location of graph nodes
 
 # make sure graph is connected before running!
 # (e.g. no islands, etc.)
@@ -82,7 +82,7 @@ for data in in_data:
 print len(ids)
 
 
-# grab just the lowest value for each street segment
+# sum values to/from each point
 output = []
 w = 0
 while w < len(ids):
