@@ -1,14 +1,14 @@
 # OpenTripPlanner_analysis
 
-The scripts in this repository use of OpenTripPlanner (OTP) to analyze urban transportation systems.
+The scripts in this repository use OpenTripPlanner (OTP) for batch transportation network computations.
 
-OTP is an open source multi-model transportation routing platform ([official website](http://www.opentripplanner.org/), [online documentation](http://docs.opentripplanner.org/en/latest/)).
-
-Below is a brief outline of how to set up OTP and how it can be scripted for transit analysis.
+Below briefly explains how to set up OTP, what the scripts input and return, and how to run them.
 
 ---
 
 ## Setting up OTP
+
+OTP is an open source multi-model transportation routing engine ([official website](http://www.opentripplanner.org/), [online documentation](http://docs.opentripplanner.org/en/latest/)). It can be used to route via biking, driving, transit, and/or walking.
 
 OpenTripPlanner is written in Java (find the executable .jar [here](http://maven.conveyal.com/org/opentripplanner/otp/)) and uses OpenStreeMap (as .pbf or .xml) and GTFS (as a .zip package) as inputs.
 
@@ -30,6 +30,8 @@ Put the osm.xml(or.pbf), GTFS.zip(s), and the OTP.jar into a directory and use t
 java -Xmx4G -jar otp.jar --build /path/to/dir/ --inMemory --analyst
 ```
 
+The ```4``` in the ```-Xmx4G``` refers to how much memory should be alocated to the build.
+
 Check out http://localhost:8080/ to test if it's routing properly.
 
 ---
@@ -39,7 +41,7 @@ Check out http://localhost:8080/ to test if it's routing properly.
 There are a couple ways to script OTP to perform batch routing analysis...
 1 - by storing it on disk
 2 - by storing it on a local server
-Storing on desk allows for faster batch calculations, while storing on a local server has more options.
+Storing on disk allows for faster batch calculations, while storing on a local server can return a wider range of information.
 
 ###1 - graph on disk
 
@@ -60,35 +62,33 @@ jython -Dpython.path=otp.jar my_script.py
 java -Xmx4G -cp otp.jar:jython.jar org.opentripplanner.standalone.OTPMain --graphs . --script my_script.py
 ```
 
-The ```4``` in the ```-Xmx4G``` refers to how much memory should be alocated to the build.
-
-Here a few scripts that perform batch travel time computations  
+Here a few scripts that perform batch travel time computations.
 
 #### OD_single.py
-Computes a single travel time from an origin to a destination for specific travel modes and departure time. Used as a basis for batch computations.
+Computes a single travel time from an origin to a destination for specific travel modes and departure time. This is used as a basis for batch computations.
 
 #### OD_multi.py
 Computes travel times between two points looping over multiple departure times and for different input graphs.
 
 #### Travel_time_matrix.py
-Computes a matrix of travel times from a series of origins to a series of destinations.
+Computes a matrix of travel times from a series of origins to a series of destinations for a specific departure time and travel mode(s).
 
 #### Travel_time_cube.py
-Computes three dimensional array of travel times (origins-destinations-departure time). This is essentially the same script as above, but set in a function that's called in a loop compute over consecutive minutes in a set time period (e.g. every minute in an hour).
+Computes three dimensional array of travel times (origins-destinations-departure time). This is essentially the same script as above, but set in a function that's called in a loop to compute over consecutive minutes in a set time period (e.g. every minute in an hour).
 
 #### parallel.py
-Travel time computations can often be time intensive. This simple script allows for parallel processing calling scripts via the subprocess and multiprocessing modules.
+Travel time computations can often be time intensive. This simple script allows for parallel processing by calling scripts via the subprocess and multiprocessing modules.
 
 #### one_to_many.py
 Computes the travel times from one point to a set of many points.
 
 #### ppa.py
-Computes Potential Path Areas, the area accessible between two points for a specific time window.
+Computes potential path areas, the area accessible between two points for a specific time window.
 
 
 ###2 - graph in a local server
 
-The second way to script OpenTripPlanner
+The second way to script OpenTripPlanner is to send get requests to a graph stored in a local server. The results can be grabbed using Python and storing results as dictionary objects.
 
 These scripts don't require Jython. They can be called with regular Python.
 
@@ -96,8 +96,6 @@ Just make sure there's an instance running in your local server.
 ```shell
 java -Xmx4G -jar otp.jar --build /path/to/dir/ --inMemory --analyst
 ```
-
-The locally served graph can be return results via get requests. The results can be grabbed using Python and then stored as dictionary objects.
 
 Here are a few examples...
 
