@@ -1,4 +1,4 @@
-## OpenTripPlanner_analysis
+# OpenTripPlanner_analysis
 
 The scripts in this repository use of OpenTripPlanner (OTP) to analyze urban transportation systems.
 
@@ -8,7 +8,7 @@ Below is a brief outline of how to set up OTP and how it can be scripted for tra
 
 ---
 
-### Setting up OTP
+## Setting up OTP
 
 OpenTripPlanner is written in Java (find the executable .jar [here](http://maven.conveyal.com/org/opentripplanner/otp/)) and uses OpenStreeMap (as .pbf or .xml) and GTFS (as a .zip package) as inputs.
 
@@ -41,7 +41,7 @@ There are a couple ways to script OTP to perform batch routing analysis...
 2 - by storing it on a local server
 Storing on desk allows for faster batch calculations, while storing on a local server has more options.
 
-###1 - on disk
+###1 - graph on disk
 
 Building the graph and storing on disk as a graph.obj
 ```shell
@@ -85,7 +85,8 @@ Computes the travel times from one point to a set of many points.
 #### ppa.py
 Computes Potential Path Areas, the area accessible between two points for a specific time window.
 
-###2 - in a local server.
+
+###2 - graph in a local server
 
 The second way to script OpenTripPlanner
 
