@@ -34,14 +34,14 @@ Check out http://localhost:8080/ to test if it's routing properly.
 
 ---
 
-### Scripting OTP
+## Scripting OTP
 
 There are a couple ways to script OTP to perform batch routing analysis...
 1 - by storing it on disk
 2 - by storing it on a local server
 Storing on desk allows for faster batch calculations, while storing on a local server has more options.
 
-####1 -
+###1 - on disk
 
 Building the graph and storing on disk as a graph.obj
 ```shell
@@ -64,28 +64,28 @@ The ```4``` in the ```-Xmx4G``` refers to how much memory should be alocated to 
 
 Here a few scripts that perform batch travel time computations  
 
-##### OD_single.py
+#### OD_single.py
 Computes a single travel time from an origin to a destination for specific travel modes and departure time. Used as a basis for batch computations.
 
-##### OD_multi.py
+#### OD_multi.py
 Computes travel times between two points looping over multiple departure times and for different input graphs.
 
-##### Travel_time_matrix.py
+#### Travel_time_matrix.py
 Computes a matrix of travel times from a series of origins to a series of destinations.
 
-##### Travel_time_cube.py
+#### Travel_time_cube.py
 Computes three dimensional array of travel times (origins-destinations-departure time). This is essentially the same script as above, but set in a function that's called in a loop compute over consecutive minutes in a set time period (e.g. every minute in an hour).
 
-##### parallel.py
+#### parallel.py
 Travel time computations can often be time intensive. This simple script allows for parallel processing calling scripts via the subprocess and multiprocessing modules.
 
-### one_to_many.py
+#### one_to_many.py
 Computes the travel times from one point to a set of many points.
 
-##### ppa.py
+#### ppa.py
 Computes Potential Path Areas, the area accessible between two points for a specific time window.
 
-####2 - By storing the graph in a local server and sending get requests.
+###2 - in a local server.
 
 The second way to script OpenTripPlanner
 
@@ -100,10 +100,10 @@ The locally served graph can be return results via get requests. The results can
 
 Here are a few examples...
 
-##### get_trip_itinerary.py
+#### get_trip_itinerary.py
 Grabs trip information between pairs of points. This includes departure time, duration, stop identifiers, and transit vehicle numbers. Results get put into a .csv table.
 
-##### grab_route_geometry.py
+#### grab_route_geometry.py
 Returns the trip geometry between pairs of points as geojson LineStrings.
 
 ---
