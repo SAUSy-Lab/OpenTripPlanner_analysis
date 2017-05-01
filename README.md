@@ -19,7 +19,7 @@ wget http://overpass-api.de/api/map?bbox=-80.9,43.0,-77.9,44.5
 
 The latest version of the OTP executable .jar:
 ```
-wget http://maven.conveyal.com.s3.amazonaws.com/org/opentripplanner/otp/1.0.0/otp-1.0.0-shaded.jar
+wget http://maven.conveyal.com.s3.amazonaws.com/org/opentripplanner/otp/1.1.0/otp-1.1.0-shaded.jar
 ```
 
 GTFS is available through local transit agencies.
