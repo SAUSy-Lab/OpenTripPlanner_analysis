@@ -43,7 +43,7 @@ There are a couple ways to script OTP to perform batch routing analysis...
 2 - by storing it on a local server. 
 Storing on disk allows for faster batch calculations, while storing on a local server can return a wider range of information.
 
-###1 - graph on disk
+### - graph on disk
 
 Building the graph and storing on disk as a graph.obj
 ```shell
