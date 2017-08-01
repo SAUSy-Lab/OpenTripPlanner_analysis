@@ -43,7 +43,7 @@ There are a couple ways to script OTP to perform batch routing analysis...
 2 - by storing it on a local server. 
 Storing on disk allows for faster batch calculations, while storing on a local server can return a wider range of information.
 
-### - graph on disk
+### 1 - graph on disk
 
 Building the graph and storing on disk as a graph.obj
 ```shell
@@ -76,6 +76,9 @@ Computes a matrix of travel times from a series of origins to a series of destin
 #### Travel_time_cube.py
 Computes three dimensional array of travel times (origins-destinations-departure time). This is essentially the same script as above, but set in a function that's called in a loop to compute over consecutive minutes in a set time period (e.g. every minute in an hour).
 
+#### cumulative_access.py
+Computes cumulative access scores for a set of points. e.g. the number of jobs reachable by specific mode, within a specific time window
+
 #### parallel.py
 Travel time computations can often be time intensive. This simple script allows for parallel processing by calling scripts via the subprocess and multiprocessing modules.
 
@@ -86,7 +89,7 @@ Computes the travel times from one point to a set of many points.
 Computes potential path areas, the area accessible between two points for a specific time window.
 
 
-###2 - graph in a local server
+### 2 - graph in a local server
 
 The second way to script OpenTripPlanner is to send get requests to a graph stored in a local server. The results can be grabbed using Python and storing results as dictionary objects.
 
