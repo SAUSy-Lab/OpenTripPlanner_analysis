@@ -55,6 +55,8 @@ Running scripts on OTP requires [Jython](http://www.jython.org/), an implementat
 1 - By calling Jython:
 ```shell
 jython -Dpython.path=otp.jar my_script.py
+# or to include memory option
+jython -J-Xmx8g -Dpython.path=otp.jar my_script.py
 ```
 
 2 - Or by having executable jython.jar in the same directory:
