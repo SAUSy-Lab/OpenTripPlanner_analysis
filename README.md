@@ -101,6 +101,11 @@ Just make sure there's an instance running in your local server.
 ```shell
 java -Xmx4G -jar otp.jar --build /path/to/dir/ --inMemory --analyst
 ```
+We can also do this with a local graph.obj
+
+```shell
+java -jar otp.jar --graphs graphfoldername --router routername --server --enableScriptingWebService
+```
 
 Here are a few examples...
 
