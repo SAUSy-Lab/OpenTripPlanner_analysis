@@ -2,11 +2,9 @@
 # to destinations (TAZ_centroids.csv) for set time range
 
 # run with ...
-# java -Xmx4G -cp otp.jar:jython.jar org.opentripplanner.standalone.OTPMain --graphs . --script Travel_time_matrix.py
+# java -Xmx4G -cp otp.jar:jython.jar org.opentripplanner.standalone.OTPMain --script Travel_time_matrix.py
 # jython -Dpython.path=otp.jar Travel_time_matrix.py
 
-from org.opentripplanner.scripting.api import *
-from org.opentripplanner.analyst.batch import BatchProcessor
 from org.opentripplanner.scripting.api import OtpsEntryPoint
 import time
 import csv
