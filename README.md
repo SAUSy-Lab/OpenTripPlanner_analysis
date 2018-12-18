@@ -10,7 +10,7 @@ Below briefly explains how to set up OTP, what the scripts input and return, and
 
 OTP is an open source multi-model transportation routing engine ([official website](http://www.opentripplanner.org/), [online documentation](http://docs.opentripplanner.org/en/latest/)). It can be used to route via biking, driving, transit, and/or walking.
 
-OpenTripPlanner is written in Java (find the executable .jar [here](http://maven.conveyal.com/org/opentripplanner/otp/)) and uses OpenStreeMap (as .pbf or .xml) and GTFS (as a .zip package) as inputs.
+OpenTripPlanner is written in Java (find the executable .jar [here](https://repo1.maven.org/maven2/org/opentripplanner/otp/)) and uses OpenStreeMap (as .pbf or .xml) and GTFS (as a .zip package) as inputs.
 
 OpenStreetMap data can be grabbed via:
 ```
@@ -19,7 +19,7 @@ wget http://overpass-api.de/api/map?bbox=-80.9,43.0,-77.9,44.5
 
 The latest version of the OTP executable .jar:
 ```
-wget http://maven.conveyal.com.s3.amazonaws.com/org/opentripplanner/otp/1.1.0/otp-1.1.0-shaded.jar
+wget https://repo1.maven.org/maven2/org/opentripplanner/otp/1.3.0/otp-1.3.0-shaded.jar
 ```
 
 GTFS is available through local transit agencies.
