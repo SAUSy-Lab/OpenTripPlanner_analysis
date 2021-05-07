@@ -60,8 +60,13 @@ jython -J-Xmx8g -Dpython.path=otp.jar my_script.py
 ```
 
 2 - Or by having executable jython.jar in the same directory:
+2a. On Linux or Mac:
 ```shell
 java -Xmx4G -cp otp.jar:jython.jar org.opentripplanner.standalone.OTPMain --graphs . --script my_script.py
+```
+2b. On Windows:
+```shell
+java -Xmx4G -cp otp.jar;jython.jar org.opentripplanner.standalone.OTPMain --graphs . --script my_script.py
 ```
 
 Here a few scripts that perform batch travel time computations.
@@ -89,6 +94,9 @@ Computes the travel times from one point to a set of many points.
 
 #### ppa.py
 Computes potential path areas, the area accessible between two points for a specific time window.
+
+#### threading_many_to_many.py
+Computes the travel times from many points to many points in parallel using a queue.
 
 
 ### 2 - graph in a local server
